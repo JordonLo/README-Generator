@@ -1,9 +1,9 @@
 const inquirer = require('inquirer');
-const Markdown = require('./generateMarkdown');
+const generateMarkdown = require('./generateMarkdown');
+const fs = require('fs');
+const path = require('path');
 
 const questions = [
-  inquirer
-  .prompt([
       {
         type: 'input',
         name: 'title',
@@ -45,37 +45,21 @@ const questions = [
         message: 'what type of license?',
         choices:['MIT', 'ISC', 'GNUPLv3'],
       },
-    ])
-    .then((answers) => {
-      console.log(answers);
-    })
+    ]
 
-]
 // TODO: Create a function to write README file
 
-
-function runQuery() {
-  return inquirer.prompt(questions)
-  .then((answers) => {
-    const mark = Markdown.generateREADME(answers)
-    fs.WriteToFile( 'README.md', mark){
-      if(err){
-        console.log('Something went wrong');
-      }
-      else {
-        console.log("Success! README file saved to folder");
-      }
-    };
-  })
-  .catch((err) => {
-    console.log(err);
-  })
+function writeToFile (filename, data) {
+  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
 }
 
-runQuery()
-
 // TODO: Create a function to initialize app
-function init() {}
+function init() {
+  inquirer.prompt(questions).then((responses) => {
+    console.log("Creating Professional README.md file");
+    writeToFile("./dist/README.md", generateMarkdown((responses)));
+  });
+}
 
 // Function call to initialize app
 init();

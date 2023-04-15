@@ -1,13 +1,13 @@
 {
-  "name": "",
+  "name": "readme-generator",
   "version": "1.0.0",
-  "lockfileVersion": 2,
-  "requires": true,
-  "packages": {
-    "": {
-      "dependencies": {
-        "inquirer": "^8.2.5"
-      }
-    },
+  "description": "",
+  "main": "index.js",
+  "license": "ISC",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "inquirer": "^8.2.5"
   }
 }
