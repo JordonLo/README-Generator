@@ -30,6 +30,12 @@ const questions = [
         message: 'What was the contribution?',
       },
       {
+        type: 'list',
+        name: 'license',
+        message: 'what type of license?',
+        choices:['MIT', 'ISC', 'GNUPLv3'],
+      },
+      {
         type: 'input',
         name: 'email',
         message: 'Enter your email URL.',
@@ -38,12 +44,6 @@ const questions = [
         type: 'input',
         name: 'github',
         message: 'Enter your github URL.',
-      },
-      {
-        type: 'list',
-        name: 'license',
-        message: 'what type of license?',
-        choices:['MIT', 'ISC', 'GNUPLv3'],
       },
     ]
 
