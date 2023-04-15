@@ -32,8 +32,8 @@ function generateMarkdown(mark) {
  ${this.renderLicenseBadge(answers.license)}
 
  ## Table of Contents
- - [Project description](#description)
- - [Usage](#usage)
+ -[Project description](#description)
+ -[Usage](#usage)
  -[Contributions](#contributions)
  -[Installation](#installation)
  -[Questions](#questions)
@@ -45,11 +45,14 @@ function generateMarkdown(mark) {
  ## Usage
  $(answers.usage)
 
- ## Installation
+ ## Installation Instructions
  $(answers.installation)
 
  ## Contributions
  $(answers.contributions)
+
+ ## Test Instructions
+ $(answers.test)
 
  ## Questions
  $(answers.email)
@@ -59,7 +62,6 @@ function generateMarkdown(mark) {
  $(this.renderLicenseSection(answers.license))
 
 `
-  }
-
+}
 
 module.exports = generateMarkdown;

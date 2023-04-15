@@ -30,6 +30,11 @@ const questions = [
         message: 'What was the contribution?',
       },
       {
+        type: 'input',
+        name: 'test',
+        message: 'What is the test instructions '
+      },
+      {
         type: 'list',
         name: 'license',
         message: 'what type of license?',
