@@ -1,67 +1,59 @@
-function renderLicenseBadge(License) {
-  const badges = {
-    mit: '[![License: LGPL v3](https:/img.shields.io/badge/License-LGPL_v3-blue.svg)](htpps:/www.gnu.org/licenses/lgpl-3.0)',
-    isc: '[![License: LGPL v3](https:/img.shields.io/badge/License-LGPL_v3-blue.svg)](htpps:/www.gnu.org/licenses/lgpl-3.0)',
-    gnuplv3: '[![License: LGPL v3](https:/img.shields.io/badge/License-LGPL_v3-blue.svg)](htpps:/www.gnu.org/licenses/lgpl-3.0)'
+function renderLicenseBadge(license) {
+  const badge = {
+    mit: '[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)',
+    isc: '[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)',
+    gnuplv3: '[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)'
   }
-  return badges[License];
+  return badge;
 }
 
-function renderLicenseLink(License) {
+function renderLicenseLink(license) {
   const licenseLinks = {
-    isc: '[ISC](https:/chooselicense.com/licenses/isc/)',
-    mit: '[mit](https:/chooselicense.com/licenses/mit/)',
-    gnuplv3: '[gnuplv3](https:/chooselicense.com/licenses/gnuplv3/)'
+    isc: '[ISC](https:/choosealicense.com/licenses/isc/#)',
+    mit: '[mit](https://choosealicense.com/licenses/mit/#)',
+    gnuplv3: '[gnuplv3](https://choosealicense.com/licenses/gpl-3.0/)'
   }
-  return licenseLinks[License];
+  return licenseLinks;
 }
 
-function renderLicenseSection(License) {
-  if (License) {
-    return 'License under the ${this.renderLicenseLink(License)} license'
+function renderLicenseSection(license) {
+  if (license) {
+    return 'License under ${responses.license}'
   } else {
     return '';
   }
 }
 
-function generateMarkdown(mark) {
-  generateReadme(answers) 
-    return `
- # ${answers.title}
-
- ${this.renderLicenseBadge(answers.license)}
-
- ## Table of Contents
- -[Project description](#description)
- -[Usage](#usage)
- -[Contributions](#contributions)
- -[Installation](#installation)
- -[Questions](#questions)
- -[License](#license)
-
- ## Description
- $(answers.description)
-
- ## Usage
- $(answers.usage)
-
- ## Installation Instructions
- $(answers.installation)
-
- ## Contributions
- $(answers.contributions)
-
- ## Test Instructions
- $(answers.test)
-
- ## Questions
- $(answers.email)
- $(answers.github)
-
- ## License
- $(this.renderLicenseSection(answers.license))
-
-`
+function generateMarkdown(data) {
+  return `# ${data.title}
+  ## Description
+  ${data.description}
+  
+  
+  ## Table of Contents
+  * [installation](#installation)
+  * [usage](#usage)
+  * [contributions](#contributions)
+  * [testing](#testing)
+  * [license](#license)
+  * [git](#git)
+  * [email](#email)
+  
+  ## Installation
+  ${data.installation}
+  
+  ## Usage
+  ${data.usage}
+  ## License
+  ${data.license}
+  ## Contributions
+  ${data.contributions}
+  ## Tests
+    ${data.testing}
+  
+  ## Questions
+  If you have any questions about the repo, open an issue or contact me directly at ${data.email}. You can find more of my work at ${data.git}
+`;
 }
 
 module.exports = generateMarkdown;

@@ -52,8 +52,8 @@ const questions = [
       },
     ]
 
-function writeToFile (filename, data) {
-  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
+function writeToFile (fileName, responses) {
+  return fs.writeFileSync(path.join(process.cwd(), fileName), responses);
 }
 
 function init() {
@@ -63,5 +63,4 @@ function init() {
   });
 }
 
-// Function call to initialize app
 init();
