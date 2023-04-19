@@ -31,8 +31,8 @@ const questions = [
       },
       {
         type: 'input',
-        name: 'test',
-        message: 'What is the test instructions '
+        name: 'testing',
+        message: 'What is the testing instructions '
       },
       {
         type: 'list',
@@ -47,7 +47,7 @@ const questions = [
       },
       {
         type: 'input',
-        name: 'github',
+        name: 'git',
         message: 'Enter your github URL.',
       },
     ]
