@@ -26,8 +26,8 @@ const questions = [
       },
       {
         type: 'input',
-        name: 'contribution',
-        message: 'What was the contribution?',
+        name: 'contributions',
+        message: 'What was the contributions?',
       },
       {
         type: 'input',
@@ -50,17 +50,20 @@ const questions = [
         name: 'git',
         message: 'Enter your github URL.',
       },
-    ]
-
-function writeToFile (fileName, responses) {
-  return fs.writeFileSync(path.join(process.cwd(), fileName), responses);
-}
+    ];
 
 function init() {
-  inquirer.prompt(questions).then((responses) => {
-    console.log("Creating Professional README.md file");
-    writeToFile("./dist/README.md", generateMarkdown((responses)));
-  });
+    inquirer
+    .prompt(questions).then(data => {
+        console.log(data)
+        const mkDown = generateMarkdown(data)
+        console.log(mkDown)
+        fs.writeFile("README.md",mkDown,err => {
+            if (err){
+                console.error("error");
+            }
+        } )
+    })
 }
 
 init();
